@@ -1,10 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react'                    
 
 const LocalForm = () => {
 
     let [frmdata,setFrmdata] = useState({
-        username:"" , email:"" , password:""
+        username:"" , email:"" , password:""                    
        })
 
     function takeinput(e){
@@ -14,7 +14,7 @@ const LocalForm = () => {
 
     function handlesubmit(e){
         e.preventDefault()
-        console.log(frmdata);
+        console.log(frmdata);                   
         localStorage.setItem('userdata',JSON.stringify(frmdata))
     }
 
