@@ -2,6 +2,8 @@ import React from 'react'
 import Form from './components/Form'
 import Multiform from './components/Multiform'
 import LocalForm from './components/LocalForm'
+import { Route, Routes } from 'react-router-dom'
+import Showdata from './components/Showdata'
 
 const App = () => {
   return (
@@ -10,7 +12,13 @@ const App = () => {
   {/* <Form/> */}
   {/* <Multiform/> */}
 
-  <LocalForm />
+  {/* <LocalForm /> */}
+
+  <Routes>
+
+    <Route index element={<LocalForm/>}/>
+    <Route path='/showdata' element={<Showdata/>}/>
+  </Routes>
   
   </>
   )
