@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, {  useRef } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+  import { ToastContainer, toast } from 'react-toastify';
+  
+  function App(){
+    // const notify = () => toast.success('successfull....');
+    const notify = () => toast.success('successfull....');
 
-  return (
-    <>
+    let myRef=useRef()
+
+    function inpfocus(){
+      myRef.current.focus()
+      
+    }
+
+
+    function change(){
+      myRef.current.innerHTML="Abhishek"
+      myRef.current.style.backgroundColor="red"      
+    }
+    
+
+    return(
+      <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        
+        <button onClick={notify}>Notify!</button>
+        <ToastContainer position="top-center" autoClose='5000' theme="dark" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+
+       <input type="text" ref={myRef}/>
+      <button onClick={inpfocus}> Click Here</button>
+
+      <h1 ref={myRef}>Rohit</h1>
+      <button onClick ={change}>Change</button>
+      </>
+    );
+  }
 
 export default App
